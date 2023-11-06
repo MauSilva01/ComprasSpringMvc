@@ -1,0 +1,77 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="/semantic.css">
+		<link rel="stylesheet" type="text/css" href="/TelaInicial.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+		<script src="/semantic.js"></script>
+		<title>Lista de Produtos</title>
+		<link rel="icon" href="./themes/carrinho.png" type="image/x-icon">
+	</head>
+	<body>
+		<div class="ui secondary  menu">
+				<a class="item" href="/home/inicio">home</a>
+				<a class="blue active item" href="/produtos/listar">Produtos</a>
+				<a class="item" href="/lista/listar">Lista de compras</a>
+				<a class="item" href="/mercados/listar">Mercados</a>
+				<a class="item" href="/Apoio/OpcoesApoio">Apoio</a>
+				<div class="right menu">
+					<div class="item">
+						<div class="ui icon input">
+							<input type="text" placeholder="Search...">
+							<i class="search link icon"></i>
+						</div>
+					</div> 
+					<a class=" red ui active item" href="/login">Logout</a>			      
+				</div>
+			</div>
+			
+			<a th:href="@{/produtos/Formulario}">Adicionar Produto</a>
+			
+			<table border = "2" class="center-table">
+				<thead>				
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Marca</th>
+						<th>Descrição</th>
+						<th>Volume</th>
+						<th>Unidade</th>
+						<th>opçoes</th>					
+					</tr>	
+				</thead>
+				<tbody>
+					<th:each var="produto" items="${produtos}">
+						<tr th:each="produto : ${produtos}">
+							 <td th:text="${produto.id}"></td>
+						    <td th:text="${produto.nome}"></td>
+						    <td th:text="${produto.marca}"></td>
+						    <td th:text="${produto.descricao}"></td>
+						    <td th:text="${produto.volume}"></td>
+						    <td th:text="${produto.unidade}"></td>
+						    <td>
+						    	<div class="button-group">
+							    	<a th:href="@{/produtos/{id}(id=${produto.id})}">
+								    	<div class="ui  fluid submit button">	
+											<i class="blue edit icon"></i>
+										</div>
+							    	</a>
+							    	<form th:action="@{/produtos/Apagar}" method="post">
+									    <input type="hidden" name="id" th:value="${produto.id}"/>
+									    <button type="submit" class="ui fluid submit button">
+									        <i class="blue eraser icon"></i>
+									    </button>
+									</form>
+								</div>
+						    </td>
+						</tr>				
+					</th:each>
+				</tbody>
+			</table>
+				
+				
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta charset="UTF-8">
+		<title> Cadastro</title>
+		<meta charset="ISO-8859-1">
+	   	<link rel="stylesheet" type="text/css" href="/semantic.css">
+	   	<link rel="stylesheet" type="text/css" href="/telaDeLogin.css">
+	   	<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+	  	<script src="semantic.js"></script>   
+	  	<link rel="icon" href="./themes/carrinho.png" type="image/x-icon">
+	</head>
+	<body>
+		<div class="ui middle aligned center aligned grid" >
+			<div class="column">
+				<h2 class="ui teal image header">
+						<div class="content"> ENTRAR </div>	
+					</h2>
+				<form class="ui large form"  id="formLogin" action="/autenticar" method="get">
+					<div class="ui stacked segment">
+						<div class="field">
+						    <div class="ui left icon input">
+								<i class="user icon"></i>
+								<input type="text" name="email" id="email" placeholder="Endereço de email">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui left icon input">
+								<i class="lock icon"></i>
+								<input type="password" name="senha" id="senha" placeholder="Senha">
+							</div>
+						</div>
+						<button class="ui fluid large teal button" type="submit">login</button>
+						<div class="ui message">
+							<a>Esqueceu a senha?</a>
+						</div>
+					</div>
+					<div class="ui error message"></div>
+				</form>				
+				<div class="ui message">
+					Novo Usuario? <a href="cadastros.jsp">Cadastre-se aqui!</a>
+				</div>
+			</div>
+		</div>	        			
+	</body>
+</html>

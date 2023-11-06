@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="ISO-8859-1">
+		<title> Lista De Compras</title>
+		<link rel="stylesheet" type="text/css" href="/semantic.css">
+		<link rel="stylesheet" type="text/css" href="/TelaInicial.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+		<script src="semantic.js"></script>
+		<link rel="icon" href="./themes/carrinho.png" type="image/x-icon">
+	</head>
+	<body>
+		<div class="ui secondary  menu">
+			<a class="item" href="/home/inicio">home</a>
+			<a class="item" href="/produtos/listar">Produtos</a>
+			<a class="blue active item" href="/lista/listar">Lista de compras</a>
+			<a class="item" href="/mercados/listar">Mercados</a>
+			<a class="item" href="/Apoio/OpcoesApoio">Apoio</a>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui icon input">
+						<input type="text" placeholder="Search...">
+						<i class="search link icon"></i>
+					</div>
+				</div> 
+				<a class=" red ui active item" href="/login">Logout</a>			      
+			</div>
+		</div>
+		
+		<a th:href="@{/lista/Formulario}">Adicionar Mercado</a>
+		
+		<table border = "2" class="center-table">
+				<thead>				
+					<tr>
+						<th>ID</th>
+						<th>lista de Compras</th>
+						<th>Opçoes</th>				
+					</tr>	
+				</thead>
+				<tbody>
+					<th:each var="listaCompra" items="${comprasList}">
+						<tr th:each="listaCompra : ${comprasList}">
+							<td th:text="${listaCompra.id}"></td>
+						    <td th:text="${listaCompra.nomeCompras}"></td>
+						    <td>
+    					<div class="button-group">
+	    					<a th:href="@{/lista/{id}(id=${listaCompra.id})}">
+		    					<div class="ui  fluid submit button">	
+									<i class="blue edit icon"></i>
+								</div>
+	    					</a>
+	    					<form th:action="@{/lista/Apagar}" method="post">
+			    				<input type="hidden" name="id" th:value="${listaCompra.id}"/>
+			   					<button type="submit" class="ui fluid submit button">
+			        				<i class="blue eraser icon"></i>
+			    				</button>
+							</form>
+						</div>
+    				</td>
+						</tr>				
+					</th:each>
+				</tbody>
+			</table>
+		
+	</body>
+</html>

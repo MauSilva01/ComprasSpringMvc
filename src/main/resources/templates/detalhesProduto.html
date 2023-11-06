@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title> detalhes Produto </title>
+		<meta charset="UTF-8">
+		<meta charset="ISO-8859-1">			
+		<link rel="stylesheet" type="text/css" href="/semantic.css">
+		<link rel="stylesheet" type="text/css" href="/TelaInicial.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="/semantic.js"></script>		
+		<link rel="icon" href="./themes/carrinho.png" type="image/x-icon">	
+		<script>
+		function preencher() {
+
+			var vlrUnidade = document.getElementById("txtUnidade").value;
+     		var categoriaSelect = document.getElementById("unidade");
+			categoriaSelect.value = vlrUnidade;
+		}
+		</script>
+	</head>
+	<body onload="preencher();">
+		<form class="ui form" action="/produtos/Salvar" method="post">
+			<h4 class="ui dividing header">Detalhes Do Produtos</h4>
+			<div class="field">
+				<div class="two fields">
+					<div class="field">
+						<input type="hidden" name="id" th:value="${id}" >
+						<input type="hidden" name="txtUnidade" id="txtUnidade" th:value="${unidade}">
+						
+						<label for="nome" >Nome:</label>
+						<input type="text" name="nome" th:value="${nome}">
+						
+					</div>
+					<div class="field">
+						<label for="marca">Marca</label>
+						<input type="text" name="marca" th:value="${marca}">
+					</div>
+				</div>
+			</div>
+			<div class="field">
+					<label for="descricao">Descrição:</label>
+					<div class="fields">
+						<div class="twelve wide field">
+							<input type="text" name="descricao" th:value="${descricao}">
+						</div>
+						<div class="four wide field"></div>
+					</div>
+				</div>		  	
+				<div class="two fields">
+					<div class="field">
+						<label for="volume">Volume</label>
+						<input type="text" name="volume" th:value="${volume}">				
+					</div>	
+					<div class="two fields">
+					    <div class="field">
+					        <label for="unidade">Unidade</label>
+					        <select class="ui fluid dropdown" name="unidade" id="unidade">
+					            <option value="ml">ml</option>
+					            <option value="Kg">Kg</option>
+					            <option value="g">g</option>
+					            <option value="L">L</option>
+					            <option value="pct">pct</option>
+					            <option value="UN">UN</option>
+					        </select>
+					    </div>
+					</div>
+				</div>				
+			<input type="submit" value="Salvar">		
+		</form>	
+
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title> adicionar Produto</title>
+		<link rel="stylesheet" type="text/css" href="/semantic.css">
+		<link rel="stylesheet" type="text/css" href="/TelaInicial.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+		<script src="semantic.js"></script>
+		<link rel="icon" href="./themes/carrinho.png" type="image/x-icon">
+	</head>
+	<body>
+		<form class="ui form" action="/produtos/adicionar" method="post">
+		  <div class="field">
+		    <div class="two fields">
+		      <div class="field">
+		        <label for="name">Nome:</label>
+		        <input type="text" name="nome" id="nome" required><br><br>
+		      </div>
+		      <div class="field">
+		        <label for="marca">Marca:</label>
+		        <input type="text" name="marca" id="marca" required><br><br>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="field">
+		    <label for="descricao">Descrição do produto:</label>
+		    <div class="fields">
+		      <div class="twelve wide field">
+		        <input type="text" name="descricao" id="descricao" required><br><br>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="two fields">
+		    <div class="field">
+		      <label for="volume">Volume:</label>
+		      <input type="number" name="volume" id="volume" required><br><br>
+		    </div>
+		    <div class="field">
+		      <label for="unidade">Unidade:</label>
+		      <input type="text" name="unidade" id="unidade" required><br><br>
+		    </div>
+		  </div>
+		  <input type="submit" value="Criar Produto">
+		</form>
+	</body>
+</html>

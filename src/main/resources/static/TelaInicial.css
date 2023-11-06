@@ -1,0 +1,12 @@
+body{
+	width: 100vw;
+    height: 100vh;
+	background-image: url('./themes/imagemTelaInicial.jpg');
+	background-size: 100%;
+	}
+
+.button-group {
+    display: flex;
+    gap: 5px; /* Espaço entre os botões */
+}	
+
